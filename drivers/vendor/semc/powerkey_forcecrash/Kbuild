@@ -1,0 +1,1 @@
+obj-$(CONFIG_SEMC_POWERKEY_CRASH) := powerkey_forcecrash.o

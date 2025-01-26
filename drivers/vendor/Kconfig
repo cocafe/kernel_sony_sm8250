@@ -1,0 +1,2 @@
+source "drivers/vendor/semc/Kconfig"
+source "drivers/vendor/qcom/Kconfig"

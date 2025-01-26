@@ -1,0 +1,28 @@
+config SEC_TOUCHSCREEN
+	tristate "Sony Touchscreen"
+	default m
+
+config SEMC_LAST_LOGS
+	tristate "Sony Last Logs"
+	default m
+
+config SEMC_POWERKEY_CRASH
+	tristate "Sony PowerKey Crash"
+	default m
+
+config SEMC_BU520X1NVX
+	tristate "bu520x1nvx bipolar detection device"
+	default m
+
+config SEMC_CAMERA_MODULES
+	tristate "sony camera modules"
+	default m
+
+config SEMC_FINGERPRINT_DRIVER
+	tristate "sony fingerprint driver"
+	default m
+
+config NXP_PN553
+	tristate "NXP PN553 NFC"
+	default m
+

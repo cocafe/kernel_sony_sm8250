@@ -1,0 +1,6 @@
+config QCOM_VENDOR_AUDIO
+	tristate "Qualcomm audio kernel modules"
+	default m
+
+source "drivers/vendor/qcom/data-kernel/drivers/rmnet/perf/Kconfig"
+source "drivers/vendor/qcom/data-kernel/drivers/rmnet/shs/Kconfig"

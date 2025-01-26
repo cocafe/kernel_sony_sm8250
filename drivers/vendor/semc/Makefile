@@ -1,0 +1,12 @@
+obj-$(CONFIG_SEC_TOUCHSCREEN) += sec_ts/
+obj-$(CONFIG_SEMC_LAST_LOGS) += last_logs/
+obj-$(CONFIG_SEMC_POWERKEY_CRASH) += powerkey_forcecrash/
+obj-$(CONFIG_NXP_PN553) += nfc/drivers/pn553/
+obj-$(CONFIG_SEMC_BU520X1NVX) += bu520x1nvx/
+obj-$(CONFIG_SEMC_CAMERA_MODULES) += camera-kernel-module/camera_sync/
+obj-$(CONFIG_SEMC_CAMERA_MODULES) += camera-kernel-module/flash_led/
+obj-$(CONFIG_SEMC_CAMERA_MODULES) += camera-kernel-module/slg51000_regulator/
+obj-$(CONFIG_SEMC_CAMERA_MODULES) += camera-kernel-module/slg51000_regulator/
+obj-$(CONFIG_SEMC_CAMERA_MODULES) += camera-kernel-module/tcs3490/
+obj-$(CONFIG_SEMC_CAMERA_MODULES) += camera-kernel-module/sony_camera/
+obj-$(CONFIG_SEMC_FINGERPRINT_DRIVER) += fingerprint/kernel-module/egis/et6xx/
