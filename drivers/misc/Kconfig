@@ -664,3 +664,9 @@ config SONY_EXT_UIM_CTRL
 	default n
 	help
 	  A misc driver related to UIM selector/enabler
+
+config CHARGE_MODE_REBOOT
+	bool "Reboot device in charge boot mode"
+	default n
+	help
+	  Reboot device into system mode when in charge boot mode
