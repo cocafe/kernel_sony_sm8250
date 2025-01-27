@@ -49,6 +49,13 @@ TAGS
 /vmlinuz.*
 /System.map
 
+arch/arm64/crypto/sha256-core.S
+arch/arm64/kernel/vdso/vdso.lds
+arch/arm64/kernel/vdso/vdso.so
+arch/arm64/kernel/vdso/vdso.so.dbg
+arch/arm64/kernel/vmlinux.lds
+
+
 # Ignore build directories
 /.*.tmp_versions
 /.*.kbuild
