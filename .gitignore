@@ -139,3 +139,4 @@ security/apparmor/rlim_names.h
 security/selinux/av_permissions.h
 security/selinux/flask.h
 usr/gen_init_cpio
+scripts/sign-file
