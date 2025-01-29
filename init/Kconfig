@@ -1271,6 +1271,11 @@ choice
 	prompt "Compiler optimization level"
 	default CC_OPTIMIZE_FOR_PERFORMANCE
 
+config CC_OPTIMIZE_FOR_FASTEST
+	bool "Optimize for fastest"
+	help
+	  -Ofast
+
 config CC_OPTIMIZE_FOR_PERFORMANCE
 	bool "Optimize for performance"
 	help

@@ -679,8 +679,14 @@ KBUILD_CFLAGS	+= $(call cc-disable-warning, address-of-packed-member)
 
 ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
 KBUILD_CFLAGS   += -Os
-else
+endif
+
+ifdef CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE
 KBUILD_CFLAGS   += -O2
+endif
+
+ifdef CONFIG_CC_OPTIMIZE_FOR_FASTEST
+KBUILD_CFLAGS   += -Ofast
 endif
 
 # Tell gcc to never replace conditional load with a non-conditional one
