@@ -1664,7 +1664,8 @@ int wlan_hdd_set_powersave(struct hdd_adapter *adapter,
 		return -EINVAL;
 	}
 
-	hdd_debug("Allow power save: %d", allow_power_save);
+	allow_power_save = 0;
+
 	mac_handle = hdd_ctx->mac_handle;
 
 	/*
@@ -1714,7 +1715,7 @@ int wlan_hdd_set_powersave(struct hdd_adapter *adapter,
 			hdd_debug("Power Save is not enabled in the cfg");
 		}
 	} else {
-		hdd_debug("Wlan driver Entering Full Power");
+		hdd_warn("Wlan driver Entering Full Power");
 
 		/*
 		 * Enter Full power command received from GUI
