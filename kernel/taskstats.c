@@ -652,7 +652,9 @@ static int taskstats2_cmd_attr_pid(struct genl_info *info)
 	int rc;
 	u64 utime, stime;
 	const struct cred *tcred;
+#ifdef CONFIG_CPUSETS
 	struct cgroup_subsys_state *css;
+#endif
 	unsigned long flags;
 	struct signal_struct *sig;
 
@@ -719,11 +721,13 @@ static int taskstats2_cmd_attr_pid(struct genl_info *info)
 
 	strlcpy(stats->name, tsk->comm, sizeof(stats->name));
 
+#ifdef CONFIG_CPUSETS
 	css = task_get_css(tsk, cpuset_cgrp_id);
 	cgroup_path_ns(css->cgroup, stats->state, sizeof(stats->state),
 				current->nsproxy->cgroup_ns);
 	css_put(css);
 	/* version 2 fields end here */
+#endif
 
 	put_task_struct(tsk);
 
