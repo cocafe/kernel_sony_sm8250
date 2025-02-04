@@ -128,8 +128,10 @@ obj-$(CONFIG_RSEQ) += rseq.o
 
 $(obj)/configs.o: $(obj)/config_data.h
 
+KCONFIG_CONFIG_FAKE = config.fake
+
 targets += config_data.gz
-$(obj)/config_data.gz: $(KCONFIG_CONFIG) FORCE
+$(obj)/config_data.gz: $(KCONFIG_CONFIG_FAKE) FORCE
 	@grep -v "CONFIG_MACH_[^ ]\+ is not set" $< | gzip > $@
 
       filechk_ikconfiggz = (echo "static const char kernel_config_data[] __used = MAGIC_START"; cat $< | scripts/bin2c; echo "MAGIC_END;")
