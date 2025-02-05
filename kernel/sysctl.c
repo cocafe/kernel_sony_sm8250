@@ -1360,7 +1360,7 @@ static struct ctl_table kern_table[] = {
 #endif
 #if defined(CONFIG_MMU)
 	{
-		.procname	= "randomize_va_space",
+		.procname	= "randomize_va_space__",
 		.data		= &randomize_va_space,
 		.maxlen		= sizeof(int),
 		.mode		= 0644,
