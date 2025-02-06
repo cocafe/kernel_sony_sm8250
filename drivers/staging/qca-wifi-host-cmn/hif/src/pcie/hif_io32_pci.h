@@ -31,7 +31,7 @@
  * For power management at the cost of performance, set this to 0.
  */
 #ifndef CONFIG_ATH_PCIE_MAX_PERF
-#define CONFIG_ATH_PCIE_MAX_PERF 0
+#define CONFIG_ATH_PCIE_MAX_PERF 1
 #endif
 
 /*
@@ -48,7 +48,7 @@
  * (less power, slightly more wakeup latency)
  * To disable clock gating in L1 state, set this to 0. (slighly more power)
  */
-#define CONFIG_PCIE_ENABLE_L1_CLOCK_GATE 1
+#define CONFIG_PCIE_ENABLE_L1_CLOCK_GATE 0
 
 /*
  * PCIE_ACCESS_LOG_NUM specifies the number of

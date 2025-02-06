@@ -2513,6 +2513,8 @@ cppflags-y += -DCONFIG_ATH_PROCFS_DIAG_SUPPORT
 endif
 endif
 
+cppflags-y += -DCONFIG_ATH_PCIE_MAX_PERF=1
+
 ifeq ($(CONFIG_HIF_USB), y)
 cppflags-y += -DCONFIG_ATH_PROCFS_DIAG_SUPPORT
 cppflags-y += -DQCA_SUPPORT_OL_RX_REORDER_TIMEOUT

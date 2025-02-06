@@ -1425,6 +1425,8 @@ void hif_pci_enable_power_management(struct hif_softc *hif_sc,
 	struct hif_pci_softc *pci_ctx = HIF_GET_PCI_SOFTC(hif_sc);
 	uint32_t mode;
 
+	return;
+
 	if (!pci_ctx) {
 		HIF_ERROR("%s, hif_ctx null", __func__);
 		return;
