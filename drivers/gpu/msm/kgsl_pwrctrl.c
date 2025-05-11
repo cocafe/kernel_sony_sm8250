@@ -1417,7 +1417,7 @@ static ssize_t gpu_busy_percentage_show(struct device *dev,
 	if (stats->total_old != 0)
 		busy_percent = (stats->busy_old * 100) / stats->total_old;
 
-	ret = scnprintf(buf, PAGE_SIZE, "%d %%\n", busy_percent);
+	ret = scnprintf(buf, PAGE_SIZE, "%d\n", busy_percent);
 
 	/* Reset the stats if GPU is OFF */
 	if (!test_bit(KGSL_PWRFLAGS_AXI_ON, &device->pwrctrl.power_flags)) {
