@@ -1202,6 +1202,19 @@ static int fg_gen4_get_prop_real_capacity(struct fg_dev *fg, int *val)
 	return fg_get_msoc(fg, val);
 }
 
+struct fg_dev *qpnp_fg = NULL;
+
+int qpnp_fg_get_capacity(int *ret)
+{
+	if (!qpnp_fg)
+		return -ENODEV;
+
+	if (!ret)
+		return -EINVAL;
+
+	return fg_gen4_get_prop_real_capacity(qpnp_fg, ret);
+}
+
 static int fg_gen4_get_prop_capacity_raw(struct fg_gen4_chip *chip, int *val)
 {
 	struct fg_dev *fg = &chip->fg;
@@ -8472,6 +8485,8 @@ static int fg_gen4_probe(struct platform_device *pdev)
 		schedule_delayed_work(&fg->profile_load_work, 0);
 
 	fg_gen4_post_init(chip);
+
+	qpnp_fg = fg;
 
 	pr_debug("FG GEN4 driver probed successfully\n");
 	return 0;
