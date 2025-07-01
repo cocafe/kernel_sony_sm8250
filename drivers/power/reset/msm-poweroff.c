@@ -570,6 +570,32 @@ static void msm_set_dt_restart_reason(const char *cmd)
 	}
 }
 
+static int available_reasons_get(char *buf, const struct kernel_param *kp)
+{
+	size_t c = 0;
+
+	int count;
+	struct restart_reason_param *rr = NULL;
+
+	if (!rr_base)
+		return -ENODATA;
+
+	rr = (struct restart_reason_param *)rr_base;
+
+	for (count = 0; count < no_of_reasons; count++) {
+		c += scnprintf(&buf[c], PAGE_SIZE - c, "%s\n", rr->cmd);
+		rr += 1;
+	}
+
+	return c;
+}
+
+static const struct kernel_param_ops available_reasons_param_ops = {
+        .get = available_reasons_get,
+};
+
+module_param_cb(available_restart_reasons, &available_reasons_param_ops, NULL, 0644);
+
 static void msm_restart_prepare(const char *cmd)
 {
 	bool need_warm_reset = false;

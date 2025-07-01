@@ -3928,6 +3928,7 @@ void dsi_panel_calc_dsi_transfer_time(struct dsi_host_common_cfg *config,
 	display_mode->pixel_clk_khz =  display_mode->pixel_clk_khz / 1000;
 }
 
+extern int is_in_charge_boot(void);
 
 int dsi_panel_get_mode(struct dsi_panel *panel,
 			u32 index, struct dsi_display_mode *mode,
@@ -4033,8 +4034,14 @@ int dsi_panel_get_mode(struct dsi_panel *panel,
 			mode->panel_mode = panel->panel_mode;
 		}
 #ifdef CONFIG_DRM_SDE_SPECIFIC_PANEL
-		mode->default_timing = of_property_read_bool(child_np,
-				"qcom,mdss-dsi-timing-default");
+		// use 4k resolution in charge boot mode will crash system
+		if (is_in_charge_boot()) {
+			if (child_idx == 0)
+				mode->default_timing = 1;
+		} else {
+			mode->default_timing = of_property_read_bool(child_np,
+							"qcom,mdss-dsi-timing-default");
+		}
 #endif /* CONFIG_DRM_SDE_SPECIFIC_PANEL */
 	}
 	goto done;
